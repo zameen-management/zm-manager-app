@@ -2,6 +2,7 @@ import { InputHTMLAttributes, useState } from "react";
 import { StyledDropdown } from "./Dropdown.styled";
 import { Column } from "../../styles/Column.styled";
 import useOutsideClick from "../../hooks/useOutsideClick";
+import { MdArrowDropDown } from "react-icons/md";
 
 export type DropdownOption = {
 	name: string;
@@ -47,7 +48,7 @@ const Dropdown = ({
 	};
 
 	return (
-		<StyledDropdown $disabled={disabled} ref={ref}>
+		<StyledDropdown $disabled={disabled} $isOpen={isOpen} ref={ref}>
 			<Column $gap="0.5rem">
 				<label htmlFor={id}>
 					{label}
@@ -62,6 +63,7 @@ const Dropdown = ({
 						value={value}
 						readOnly
 					/>
+					<MdArrowDropDown className="dropdown-icon" />
 					{isOpen && (
 						<ul className="dropdown-options">
 							{options.map((option, index) => (

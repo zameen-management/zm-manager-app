@@ -8,12 +8,13 @@ import Button from "../../features/ui/button/Button";
 import { useNavigate } from "react-router";
 import { useMutation } from "@tanstack/react-query";
 import UsersApi from "../../features/api/Users.api";
+import ControlBar from "../../features/ui/controlBar/ControlBar";
 
 const AddUserPage = () => {
 	const [user, setUser] = useState(EmptyUser);
 	const navigate = useNavigate();
 
-	const mutation = useMutation({
+	const createMutation = useMutation({
 		mutationFn: (newUser: User) => UsersApi.add(newUser),
 		onSuccess: () => {
 			alert("New user created.");
@@ -24,15 +25,13 @@ const AddUserPage = () => {
 		},
 	});
 
-	const handleAddUser = () => {
-		mutation.mutate(user);
-	};
+	const handleAddUser = () => createMutation.mutate(user);
 
 	return (
 		<Container>
 			<Column $gap="2rem">
 				<Column $gap="0.5rem">
-					<h5>Add User</h5>
+					<ControlBar title="Add User" to="/users" />
 					<p>
 						After adding a user, an email will be sent to the
 						address entered; the user will need to add a password
@@ -42,8 +41,13 @@ const AddUserPage = () => {
 				<Form onSubmit={handleAddUser}>
 					<Column>
 						<UserForm user={user} setUser={setUser} />
-						<Button type="submit" disabled={mutation.isPending}>
-							{mutation.isPending ? "Adding User..." : "Add User"}
+						<Button
+							type="submit"
+							disabled={createMutation.isPending}
+						>
+							{createMutation.isPending
+								? "Adding User..."
+								: "Add User"}
 						</Button>
 					</Column>
 				</Form>

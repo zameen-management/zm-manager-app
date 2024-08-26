@@ -1,7 +1,6 @@
 import { Column } from "../../features/styles/Column.styled";
 import { Container } from "../../features/styles/Container.styled";
 import { useNavigate, useParams } from "react-router";
-import { getName } from "../../features/utils/getName";
 import Form from "../../features/ui/form/Form";
 import UserForm from "../../features/components/users/UserForm";
 import Button from "../../features/ui/button/Button";
@@ -10,6 +9,8 @@ import UsersApi from "../../features/api/Users.api";
 import { useEffect, useState } from "react";
 import { EmptyUser, User } from "../../features/models/User.model";
 import { Row } from "../../features/styles/Row.styled";
+import ControlBar from "../../features/ui/controlBar/ControlBar";
+import { getFullName } from "../../features/utils/getFullName";
 
 const UserPage = () => {
 	const { userId } = useParams();
@@ -94,12 +95,14 @@ const UserPage = () => {
 		<Container>
 			<Column $gap="2rem">
 				<Column $gap="0.5rem">
-					<Row $justifyContent="space-between">
-						<h5>
-							{status === "pending"
+					<ControlBar
+						title={
+							status === "pending"
 								? "Loading..."
-								: getName(user)}
-						</h5>
+								: getFullName(user)
+						}
+						to="/users"
+					>
 						<Row $gap="0.5rem">
 							<Button onClick={handleToggleEdit}>
 								{canEdit ? "Cancel" : "Edit User"}
@@ -113,7 +116,7 @@ const UserPage = () => {
 								</Button>
 							)}
 						</Row>
-					</Row>
+					</ControlBar>
 				</Column>
 				<Form onSubmit={handleUpdateUser}>
 					<Column>

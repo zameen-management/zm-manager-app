@@ -1,17 +1,17 @@
 import { StyledToggle, ToggleOption } from "./Toggle.style";
 
-export type ToggleOption = {
+export type ToggleOption<T> = {
 	name: string;
-	value: string;
+	value: T;
 };
 
-interface Props {
-	options: ToggleOption[];
-	selected: string;
-	onClick: (value: string) => void;
+interface Props<T> {
+	options: ToggleOption<T>[];
+	selected: T;
+	onClick: (value: T) => void;
 }
 
-const Toggle = ({ options = [], selected, onClick }: Props) => {
+const Toggle = <T,>({ options = [], selected, onClick }: Props<T>) => {
 	return (
 		<StyledToggle>
 			{options.map((option, index) => (

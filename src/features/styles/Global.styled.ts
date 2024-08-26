@@ -50,7 +50,7 @@ const GlobalStyles = createGlobalStyle`
 
     h6{
         font-weight: 500;
-        font-size: 20px;
+        font-size: 14px;
         letter-spacing: 0.15px;
     }
 

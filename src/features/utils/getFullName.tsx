@@ -1,5 +1,5 @@
 import { User } from "../models/User.model";
 
-export const getName = (user: User) => {
+export const getFullName = (user: User) => {
 	return `${user.firstName} ${user.lastName}`;
 };

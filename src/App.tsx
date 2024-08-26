@@ -3,6 +3,7 @@ import GlobalStyles from "./features/styles/Global.styled";
 import { Navigate, Route, Routes } from "react-router-dom";
 import HomeRoot from "./pages/home";
 import UsersRoot from "./pages/users";
+import PropertiesRoot from "./pages/properties";
 
 const App = () => {
 	return (
@@ -12,6 +13,7 @@ const App = () => {
 				{/* public */}
 				<Route element={<Layout />}>
 					<Route index element={<HomeRoot />} />
+					<Route path="properties/*" element={<PropertiesRoot />} />
 					<Route path="users/*" element={<UsersRoot />} />
 				</Route>
 

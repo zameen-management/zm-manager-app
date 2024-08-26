@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import { Column } from "../../styles/Column.styled";
 import Button from "../../ui/button/Button";
 import { NavLogo, StyledLayoutNav } from "./Layout.styled";
-import { MdClose, MdPersonOutline } from "react-icons/md";
+import { MdClose, MdHome, MdPersonOutline } from "react-icons/md";
 import { NavItem } from "./Layout";
 import { FC } from "react";
 import { Row } from "../../styles/Row.styled";
@@ -13,6 +13,11 @@ interface Nav {
 }
 
 const navItems: NavItem[] = [
+	{
+		to: "/properties",
+		name: "Properties",
+		icon: <MdHome />,
+	},
 	{
 		to: "/users",
 		name: "Users",

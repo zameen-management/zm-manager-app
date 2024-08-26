@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 interface Props {
 	$disabled: boolean;
+	$isOpen: boolean;
 }
 
 export const StyledDropdown = styled.div<Props>`
@@ -33,6 +34,18 @@ export const StyledDropdown = styled.div<Props>`
 		&:active {
 			border-color: ${({ theme }) => theme.colors.primary};
 		}
+	}
+
+	.dropdown-icon {
+		position: absolute;
+		right: 0.5rem;
+		top: 0.5rem;
+		width: 30px;
+		height: 30px;
+		color: ${({ theme, $disabled }) =>
+			$disabled ? theme.colors.lightGray : theme.colors.gray};
+		transition: all 0.25s ease-in-out;
+		transform: rotate(${({ $isOpen }) => ($isOpen ? "180deg" : "0")});
 	}
 
 	.error {
