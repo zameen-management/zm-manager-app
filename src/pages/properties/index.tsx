@@ -8,7 +8,7 @@ const PropertiesRoot = () => {
 		<Routes>
 			<Route index element={<PropertiesPage />} />
 			<Route path="add" element={<AddPropertyPage />} />
-			<Route path=":propertyId" element={<PropertyRoot />} />
+			<Route path=":propertyId/*" element={<PropertyRoot />} />
 			<Route path="*" element={<Navigate to="" />} />
 		</Routes>
 	);

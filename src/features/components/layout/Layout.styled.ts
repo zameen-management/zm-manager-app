@@ -117,4 +117,8 @@ export const StyledLayoutBody = styled.section`
 		flex: 1;
 		min-height: 0;
 	}
+
+	@media (max-width: 600px) {
+		padding: 0.75rem;
+	}
 `;

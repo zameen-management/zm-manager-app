@@ -1,4 +1,5 @@
 import { Image } from "./Image.model";
+import { User } from "./User.model";
 
 export interface PropertyAddress {
 	street: string;
@@ -12,7 +13,7 @@ export interface Property {
 	address: PropertyAddress;
 	hasMultipleUnits: boolean;
 	units: string[];
-	owners: string[];
+	owners: string[] | User[];
 	images: Image[];
 	description?: string;
 	createdAt?: Date;
