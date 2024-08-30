@@ -1,4 +1,4 @@
-import { MdArchive, MdDelete } from "react-icons/md";
+import { MdDelete } from "react-icons/md";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { getProperty } from "../../../app/property.slice";
