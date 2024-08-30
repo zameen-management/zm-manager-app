@@ -1,7 +1,7 @@
 export interface Image {
-	key?: string;
-	name?: string;
-	description?: string;
+	key: string;
+	name: string;
+	description: string;
 }
 
 export const EmptyImage = {

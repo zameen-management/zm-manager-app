@@ -25,3 +25,48 @@ export const StyledPropertiesNav = styled.nav`
 		}
 	}
 `;
+
+export const StyledImageGallery = styled.div`
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	gap: 1rem;
+`;
+
+export const StyledImage = styled.div`
+	border: 1px solid ${({ theme }) => theme.colors.lightGray};
+	border-radius: 5px;
+	height: 175px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	overflow: hidden;
+	transition: all 0.25s ease-in-out;
+
+	&:hover {
+		background: ${({ theme }) => theme.colors.lightGray};
+	}
+
+	img {
+		width: 100%;
+		height: auto;
+	}
+
+	label {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		cursor: pointer;
+	}
+
+	input {
+		position: absolute;
+		width: 0.1px;
+		height: 0.1px;
+		z-index: -1;
+	}
+`;

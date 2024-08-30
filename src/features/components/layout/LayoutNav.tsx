@@ -41,7 +41,12 @@ const LayoutNav: FC<Nav> = ({ isNavOpen, setIsNavOpen }) => {
 				</Row>
 				<Column>
 					{navItems.map((item: NavItem, index: number) => (
-						<NavLink key={index} to={item.to} className="nav-item">
+						<NavLink
+							key={index}
+							to={item.to}
+							className="nav-item"
+							onClick={() => setIsNavOpen(false)}
+						>
 							{item?.icon && item.icon}
 							{item.name}
 						</NavLink>

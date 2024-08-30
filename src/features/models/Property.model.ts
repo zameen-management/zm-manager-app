@@ -1,4 +1,5 @@
 import { Image } from "./Image.model";
+import { Unit } from "./Unit.model";
 import { User } from "./User.model";
 
 export interface PropertyAddress {
@@ -12,10 +13,12 @@ export interface Property {
 	_id?: string;
 	address: PropertyAddress;
 	hasMultipleUnits: boolean;
-	units: string[];
+	units: string[] | Unit[];
 	owners: string[] | User[];
 	images: Image[];
-	description?: string;
+	description: string;
+	status: "Available" | "Unavailable" | "Occupied";
+	isArchived: boolean;
 	createdAt?: Date;
 	updatedAt?: Date;
 }
@@ -32,4 +35,6 @@ export const EmptyProperty: Property = {
 	owners: [],
 	images: [],
 	description: "",
+	status: "Available",
+	isArchived: false,
 };

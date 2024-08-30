@@ -12,4 +12,5 @@ export const Row = styled.div<Row>`
 	gap: ${(props) => props?.$gap || "1rem"};
 	justify-content: ${(props) => props?.$justifyContent || "flex-start"};
 	align-items: ${(props) => props?.$alignItems || "center"};
+	flex-shrink: 0;
 `;

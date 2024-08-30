@@ -61,6 +61,11 @@ const GlobalStyles = createGlobalStyle`
         line-height: 24px;
         color: ${({ theme }) => theme.colors.gray};
     }
+
+    svg{
+        width: 25px;
+        height: 25px;
+    }
 `;
 
 export default GlobalStyles;

@@ -8,11 +8,10 @@ export const StyledWrapper = styled.div`
 	height: 100vh;
 	z-index: 1000;
 	background: rgba(0, 0, 0, 0.5);
+	backdrop-filter: blur(5px);
 	display: flex;
-	flex-direction: row;
 	align-items: center;
 	justify-content: center;
-	backdrop-filter: blur(5px);
 
 	.modal {
 		background: white;
@@ -21,7 +20,9 @@ export const StyledWrapper = styled.div`
 		display: flex;
 		flex-direction: column;
 		gap: 2rem;
-		width: 500px;
+		width: 650px;
+		max-height: 80vh;
+		overflow-y: auto;
 
 		.close-icon {
 			width: 30px;
@@ -31,7 +32,7 @@ export const StyledWrapper = styled.div`
 		}
 	}
 
-	@media (max-width: 600px) {
+	@media (max-width: 700px) {
 		padding: 1rem;
 
 		.modal {

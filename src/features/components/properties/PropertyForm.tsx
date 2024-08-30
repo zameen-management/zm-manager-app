@@ -3,7 +3,6 @@ import { Property } from "../../models/Property.model";
 import { Column } from "../../styles/Column.styled";
 import { Grid } from "../../styles/Grid.styled";
 import Input from "../../ui/input/Input";
-import { Row } from "../../styles/Row.styled";
 import Toggle from "../../ui/toggle/Toggle";
 import { useQuery } from "@tanstack/react-query";
 import { User } from "../../models/User.model";
@@ -16,6 +15,8 @@ import FileUpload from "../../ui/fileUpload/FileUpload";
 interface Props {
 	property: Property;
 	setProperty: Dispatch<SetStateAction<Property>>;
+	unitCount: number;
+	setUnitCount: Dispatch<SetStateAction<number>>;
 	setFiles: Dispatch<SetStateAction<File[]>>;
 	canEdit?: boolean;
 }
@@ -23,6 +24,8 @@ interface Props {
 const PropertyForm = ({
 	property,
 	setProperty,
+	unitCount,
+	setUnitCount,
 	setFiles,
 	canEdit = true,
 }: Props) => {
@@ -113,23 +116,38 @@ const PropertyForm = ({
 						required
 						disabled={!canEdit}
 					/>
-					<Row>
-						<p>Property Type:</p>
-						<Toggle
-							options={[
-								{ name: "Single-Family", value: false },
-								{ name: "Multi-Unit", value: true },
-							]}
-							selected={property.hasMultipleUnits}
-							onClick={(value) =>
-								setProperty({
-									...property,
-									hasMultipleUnits: value,
-								})
-							}
-						></Toggle>
-					</Row>
 				</Grid>
+			</Column>
+			<Column $gap="0.5rem">
+				<h6>Property Type</h6>
+				<Column>
+					<Toggle
+						options={[
+							{ name: "Single-Family", value: false },
+							{ name: "Multi-Unit", value: true },
+						]}
+						selected={property.hasMultipleUnits}
+						onClick={(value) =>
+							setProperty({
+								...property,
+								hasMultipleUnits: value,
+							})
+						}
+					></Toggle>
+					{property.hasMultipleUnits && (
+						<Input
+							id="units"
+							label="Number of Units"
+							type="number"
+							value={unitCount}
+							onChange={(e) =>
+								setUnitCount(parseInt(e.target.value) || 1)
+							}
+							min={1}
+							max={10000}
+						/>
+					)}
+				</Column>
 			</Column>
 			<Column $gap="0.5rem">
 				<h6>Additional Information</h6>
@@ -138,7 +156,7 @@ const PropertyForm = ({
 						id="owners"
 						label="Owners"
 						options={owners}
-						value={property.owners}
+						value={property.owners as string[]}
 						onChange={(options) =>
 							setProperty({ ...property, owners: options })
 						}

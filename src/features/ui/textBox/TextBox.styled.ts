@@ -17,7 +17,7 @@ export const StyledTextBox = styled.div<Props>`
 
 	textarea {
 		width: 100%;
-		height: 250px;
+		height: 200px;
 		resize: none;
 		font-size: 15px;
 		padding: 0.75rem 0.5rem;

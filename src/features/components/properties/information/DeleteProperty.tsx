@@ -1,12 +1,12 @@
 import { MdArchive, MdDelete } from "react-icons/md";
-import { Column } from "../../styles/Column.styled";
-import { Container } from "../../styles/Container.styled";
-import Button from "../../ui/button/Button";
-import { Row } from "../../styles/Row.styled";
 import { useSelector } from "react-redux";
-import { getProperty } from "../../app/property.slice";
-import PropertiesApi from "../../api/Properties.api";
 import { useNavigate } from "react-router-dom";
+import { getProperty } from "../../../app/property.slice";
+import PropertiesApi from "../../../api/Properties.api";
+import { Container } from "../../../styles/Container.styled";
+import { Column } from "../../../styles/Column.styled";
+import { Row } from "../../../styles/Row.styled";
+import Button from "../../../ui/button/Button";
 
 const DeleteProperty = () => {
 	const property = useSelector(getProperty);
@@ -31,22 +31,22 @@ const DeleteProperty = () => {
 		}
 	};
 
-	const handleArchive = () => {
-		if (
-			confirm(
-				"Are you sure you want to archive this property? (You can unarchive a property at any time."
-			)
-		) {
-			alert("todo: archive property");
-		}
-	};
+	// const handleArchive = () => {
+	// 	if (
+	// 		confirm(
+	// 			"Are you sure you want to archive this property? (You can unarchive a property at any time."
+	// 		)
+	// 	) {
+	// 		alert("todo: archive property");
+	// 	}
+	// };
 
 	return (
 		<Container>
 			<Column>
 				<h5>Delete Property</h5>
 				<Row>
-					<Button
+					{/* <Button
 						style={{ width: "min-content" }}
 						$color="#e67e22"
 						$outline="outline"
@@ -54,7 +54,7 @@ const DeleteProperty = () => {
 					>
 						<MdArchive />
 						Archive Property
-					</Button>
+					</Button> */}
 					<Button
 						style={{ width: "min-content" }}
 						$color="#e74c3c"

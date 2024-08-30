@@ -107,14 +107,14 @@ export const NavLogo = styled.a`
 `;
 
 export const StyledLayoutBody = styled.section`
-	flex: auto;
+	width: calc(100vw - 300px);
 	min-height: 100%;
 	overflow: auto;
 	padding: 1rem;
 	background: ${({ theme }) => theme.colors.offWhite};
 
 	@media (max-width: 1080px) {
-		flex: 1;
+		width: 100%;
 		min-height: 0;
 	}
 

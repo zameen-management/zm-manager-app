@@ -1,12 +1,12 @@
-import { Container } from "../../styles/Container.styled";
-import { Column } from "../../styles/Column.styled";
-import { Grid } from "../../styles/Grid.styled";
-import Input from "../../ui/input/Input";
-import { getAddress } from "../../utils/getAddress";
 import { useSelector } from "react-redux";
-import { getProperty } from "../../app/property.slice";
-import { getFullName } from "../../utils/getFullName";
-import { User } from "../../models/User.model";
+import { getProperty } from "../../../app/property.slice";
+import { Container } from "../../../styles/Container.styled";
+import { Column } from "../../../styles/Column.styled";
+import { Grid } from "../../../styles/Grid.styled";
+import Input from "../../../ui/input/Input";
+import { getFullName } from "../../../utils/getFullName";
+import { User } from "../../../models/User.model";
+import { getAddress } from "../../../utils/getAddress";
 
 const GeneralInformation = () => {
 	const property = useSelector(getProperty);
