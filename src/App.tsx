@@ -4,6 +4,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import HomeRoot from "./pages/home";
 import UsersRoot from "./pages/users";
 import PropertiesRoot from "./pages/properties";
+import AuthRoot from "./pages/auth";
 
 const App = () => {
 	return (
@@ -11,6 +12,9 @@ const App = () => {
 			<GlobalStyles />
 			<Routes>
 				{/* public */}
+				<Route path="auth/*" element={<AuthRoot />} />
+
+				{/* private */}
 				<Route element={<Layout />}>
 					<Route index element={<HomeRoot />} />
 					<Route path="properties/*" element={<PropertiesRoot />} />

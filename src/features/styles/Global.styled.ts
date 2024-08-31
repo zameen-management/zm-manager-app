@@ -58,8 +58,20 @@ const GlobalStyles = createGlobalStyle`
         font-size: 16px;
         font-weight: 400;
         letter-spacing: 0.5px;
-        line-height: 24px;
+        line-height: 20px;
         color: ${({ theme }) => theme.colors.gray};
+    }
+
+    a{
+        font-size: 16px;
+        font-weight: 400;
+        letter-spacing: 0.5px;
+        color: ${({ theme }) => theme.colors.primary};
+        text-decoration: none;
+
+        &:hover{
+            text-decoration: underline;
+        }
     }
 
     svg{
