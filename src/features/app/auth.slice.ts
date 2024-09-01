@@ -22,10 +22,8 @@ const authSlice = createSlice({
 			state.role = action.payload;
 		},
 		reset(state) {
-			state = {
-				accessToken: undefined,
-				role: undefined,
-			};
+			state.accessToken = undefined;
+			state.role = undefined;
 		},
 	},
 });
