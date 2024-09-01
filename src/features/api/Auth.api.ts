@@ -18,6 +18,15 @@ class ApiAuth {
 		});
 		return response.data;
 	};
+
+	refresh = async (): Promise<LoginI> => {
+		const response = await this.api.post(`${this.endpoint}/refresh`);
+		return response.data;
+	};
+
+	logout = async (): Promise<void> => {
+		await this.api.post(`${this.endpoint}/logout`);
+	};
 }
 
 export default new ApiAuth();

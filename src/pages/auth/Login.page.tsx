@@ -4,19 +4,20 @@ import Input from "../../features/ui/input/Input";
 import Form from "../../features/ui/form/Form";
 import { useState } from "react";
 import Button from "../../features/ui/button/Button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import AuthApi from "../../features/api/Auth.api";
 
 const LoginPage = () => {
 	const [isLoading, setIsLoading] = useState(false);
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+	const navigate = useNavigate();
 
 	const handleSubmit = async () => {
 		try {
 			setIsLoading(true);
-			const response = await AuthApi.login(email, password);
-			console.log(response);
+			await AuthApi.login(email, password);
+			navigate("/");
 		} catch (error: any) {
 			alert(`Unable to login: ${error.message}`);
 		} finally {

@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { Column } from "../../styles/Column.styled";
 import Button from "../../ui/button/Button";
 import { NavLogo, StyledLayoutNav } from "./Layout.styled";
@@ -6,6 +6,7 @@ import { MdClose, MdHome, MdPersonOutline } from "react-icons/md";
 import { NavItem } from "./Layout";
 import { FC } from "react";
 import { Row } from "../../styles/Row.styled";
+import useLogout from "../../auth/useLogout";
 
 interface Nav {
 	isNavOpen: boolean;
@@ -26,6 +27,18 @@ const navItems: NavItem[] = [
 ];
 
 const LayoutNav: FC<Nav> = ({ isNavOpen, setIsNavOpen }) => {
+	const logout = useLogout();
+	const navigate = useNavigate();
+
+	const handleLogout = async () => {
+		try {
+			await logout();
+		} catch (error) {
+			console.log(error);
+		} finally {
+			navigate("/auth/login");
+		}
+	};
 	return (
 		<StyledLayoutNav $isNavOpen={isNavOpen}>
 			<Column $gap="2rem">
@@ -53,7 +66,9 @@ const LayoutNav: FC<Nav> = ({ isNavOpen, setIsNavOpen }) => {
 					))}
 				</Column>
 			</Column>
-			<Button $outline="outline">Sign Out</Button>
+			<Button $outline="outline" onClick={handleLogout}>
+				Log Out
+			</Button>
 		</StyledLayoutNav>
 	);
 };

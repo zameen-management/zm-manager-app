@@ -5,6 +5,9 @@ import HomeRoot from "./pages/home";
 import UsersRoot from "./pages/users";
 import PropertiesRoot from "./pages/properties";
 import AuthRoot from "./pages/auth";
+import PersistLogin from "./features/auth/PersistLogin";
+import UnauthorizedPage from "./pages/unauthorized";
+import RequireAuth from "./features/auth/RequireAuth";
 
 const App = () => {
 	return (
@@ -13,12 +16,20 @@ const App = () => {
 			<Routes>
 				{/* public */}
 				<Route path="auth/*" element={<AuthRoot />} />
+				<Route path="unauthorized" element={<UnauthorizedPage />} />
 
 				{/* private */}
 				<Route element={<Layout />}>
-					<Route index element={<HomeRoot />} />
-					<Route path="properties/*" element={<PropertiesRoot />} />
-					<Route path="users/*" element={<UsersRoot />} />
+					<Route element={<PersistLogin />}>
+						<Route element={<RequireAuth />}>
+							<Route index element={<HomeRoot />} />
+							<Route
+								path="properties/*"
+								element={<PropertiesRoot />}
+							/>
+							<Route path="users/*" element={<UsersRoot />} />
+						</Route>
+					</Route>
 				</Route>
 
 				{/* catch-all */}

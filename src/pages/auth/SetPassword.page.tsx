@@ -106,7 +106,7 @@ const SetPasswordPage = () => {
 						</ErrorBox>
 					)}
 					<Button type="submit">Log In</Button>
-					<Link to="/auth/sign-in">Back to Sign In</Link>
+					<Link to="/auth/login">Back to Login</Link>
 				</Column>
 			</Form>
 		</Modal>

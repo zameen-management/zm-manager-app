@@ -35,7 +35,7 @@ const ForgotPasswordPage = () => {
 						required
 					/>
 					<Button type="submit">Send Reset Link</Button>
-					<Link to="/auth/sign-in">
+					<Link to="/auth/login">
 						<Row $gap="0.25rem">
 							<MdArrowBack />
 							Back to Sign In
