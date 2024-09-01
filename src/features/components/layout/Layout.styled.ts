@@ -84,7 +84,7 @@ export const StyledLayoutNav = styled.nav<{
 		top: 0;
 		width: 100%;
 		height: 100vh;
-		padding-bottom: 3rem;
+		padding-bottom: 5rem;
 
 		.hamburger-icon {
 			display: block;
