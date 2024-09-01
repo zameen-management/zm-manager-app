@@ -1,5 +1,4 @@
 import { Column } from "../../features/styles/Column.styled";
-import { Container } from "../../features/styles/Container.styled";
 import { useNavigate, useParams } from "react-router";
 import Form from "../../features/ui/form/Form";
 import UserForm from "../../features/components/users/UserForm";
@@ -11,6 +10,7 @@ import { EmptyUser, User } from "../../features/models/User.model";
 import { Row } from "../../features/styles/Row.styled";
 import ControlBar from "../../features/ui/controlBar/ControlBar";
 import { getFullName } from "../../features/utils/getFullName";
+import { Container } from "../../features/styles/Container.styled";
 
 const UserPage = () => {
 	const { userId } = useParams();
@@ -86,9 +86,9 @@ const UserPage = () => {
 
 	if (!user)
 		return (
-			<Container>
+			<>
 				<h5>Loading...</h5>
-			</Container>
+			</>
 		);
 
 	return (

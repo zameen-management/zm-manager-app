@@ -10,7 +10,7 @@ class UserApi {
 		return response.data;
 	};
 
-	getUsers = async (params: any): Promise<User[]> => {
+	getUsers = async (params?: any): Promise<User[]> => {
 		const response = await this.api.get(this.endpoint, { params });
 		return response.data;
 	};

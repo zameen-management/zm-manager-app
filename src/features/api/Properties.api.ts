@@ -10,7 +10,7 @@ class PropertyApi {
 		return response.data;
 	};
 
-	getAll = async (params: any): Promise<Property[]> => {
+	getAll = async (params?: any): Promise<Property[]> => {
 		const response = await this.api.get(this.endpoint, { params });
 		return response.data;
 	};

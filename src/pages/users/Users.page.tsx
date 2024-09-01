@@ -1,9 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import UsersTable from "../../features/components/users/UsersTable";
 import { Column } from "../../features/styles/Column.styled";
-import { Container } from "../../features/styles/Container.styled";
 import { Row } from "../../features/styles/Row.styled";
 import Button from "../../features/ui/button/Button";
+import { Container } from "../../features/styles/Container.styled";
 
 const UsersPage = () => {
 	const navigate = useNavigate();

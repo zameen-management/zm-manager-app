@@ -1,6 +1,5 @@
 import { useState } from "react";
 import UserForm from "../../features/components/users/UserForm";
-import { Container } from "../../features/styles/Container.styled";
 import { EmptyUser, User } from "../../features/models/User.model";
 import Form from "../../features/ui/form/Form";
 import { Column } from "../../features/styles/Column.styled";
@@ -9,6 +8,7 @@ import { useNavigate } from "react-router";
 import { useMutation } from "@tanstack/react-query";
 import UsersApi from "../../features/api/Users.api";
 import ControlBar from "../../features/ui/controlBar/ControlBar";
+import { Container } from "../../features/styles/Container.styled";
 
 const AddUserPage = () => {
 	const [user, setUser] = useState(EmptyUser);

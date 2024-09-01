@@ -1,34 +1,37 @@
-import { Unit } from "../models/Unit.model";
+import { Application } from "../models/Application.model";
 import axiosInstance from "./axios";
 
-class UnitApi {
-	private endpoint = "/units";
+class ApplicationApi {
+	private endpoint = "/applications";
 	private api = axiosInstance;
 
-	add = async (data: Unit): Promise<Unit> => {
+	add = async (data: Application): Promise<Application> => {
 		const response = await this.api.post(this.endpoint, data);
 		return response.data;
 	};
 
-	getAll = async (params?: any): Promise<Unit[]> => {
+	getAll = async (params?: any): Promise<Application[]> => {
 		const response = await this.api.get(this.endpoint, { params });
 		return response.data;
 	};
 
-	getById = async (id: string): Promise<Unit> => {
+	getById = async (id: string): Promise<Application> => {
 		const response = await this.api.get(`${this.endpoint}/${id}`);
 		return response.data;
 	};
 
-	update = async (id: string, data: Partial<Unit>): Promise<Unit> => {
+	update = async (
+		id: string,
+		data: Partial<Application>
+	): Promise<Application> => {
 		const response = await this.api.put(`${this.endpoint}/${id}`, data);
 		return response.data;
 	};
 
-	delete = async (id: string): Promise<Unit> => {
+	delete = async (id: string): Promise<Application> => {
 		const response = await this.api.delete(`${this.endpoint}/${id}`);
 		return response.data;
 	};
 }
 
-export default new UnitApi();
+export default new ApplicationApi();

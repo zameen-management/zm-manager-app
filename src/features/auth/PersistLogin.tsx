@@ -31,9 +31,15 @@ const PersistLogin = () => {
 	}, []);
 
 	return (
-		<Container>
-			{isLoading ? <h5>Authorizing...</h5> : <Outlet />}
-		</Container>
+		<>
+			{isLoading ? (
+				<Container>
+					<h5>Authorizing...</h5>
+				</Container>
+			) : (
+				<Outlet />
+			)}
+		</>
 	);
 };
 
