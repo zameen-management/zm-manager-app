@@ -84,7 +84,7 @@ export const StyledLayoutNav = styled.nav<{
 		top: 0;
 		width: 100%;
 		height: 100vh;
-		padding-bottom: 5rem;
+		padding-bottom: 3rem;
 
 		.hamburger-icon {
 			display: block;
@@ -93,6 +93,11 @@ export const StyledLayoutNav = styled.nav<{
 		.nav-item {
 			border: 1px solid rgba(255, 255, 255, 0.05);
 		}
+	}
+
+	@media (max-width: 600px) {
+		justify-content: flex-start;
+		gap: 3rem;
 	}
 `;
 
