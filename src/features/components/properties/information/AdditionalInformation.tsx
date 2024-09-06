@@ -18,33 +18,14 @@ const AdditionalInformation = () => {
 	const [canEdit, setCanEdit] = useState(false);
 	const [isLoading, setIsLoading] = useState(false);
 
-	const getUnit = async () => {
-		if (
-			!property ||
-			!property.units ||
-			property.units.length < 1 ||
-			!(typeof property.units[0] === "string")
-		) {
-			return;
-		}
-		try {
-			setIsLoading(true);
-			const data = await UnitsApi.getById(property.units[0]);
-			setUnit(data);
-		} catch (error: any) {
-			alert(`Unable to get unit information :${error.message}`);
-		} finally {
-			setIsLoading(false);
-		}
-	};
-
 	useEffect(() => {
-		getUnit();
+		if (property && property.units.length > 0) {
+			setUnit(property.units[0] as Unit);
+		}
 	}, [property]);
 
 	const toggleEdit = async () => {
 		if (canEdit) {
-			await getUnit();
 			setCanEdit(false);
 		} else {
 			setCanEdit(true);

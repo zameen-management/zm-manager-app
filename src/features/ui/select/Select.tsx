@@ -8,7 +8,7 @@ import {
 } from "react-icons/md";
 import useOutsideClick from "../../hooks/useOutsideClick";
 
-type Option = {
+export type SelectOption = {
 	name: string;
 	value: any;
 };
@@ -16,7 +16,7 @@ type Option = {
 interface Props {
 	id: string;
 	label: string;
-	options: Option[];
+	options: SelectOption[];
 	disabled?: boolean;
 	value: string[];
 	onChange: (options: string[]) => void;
@@ -37,7 +37,7 @@ const Select = ({
 		onOutsideClick: () => setIsOpen(false),
 	});
 
-	const handleOptionClick = (option: Option) => {
+	const handleOptionClick = (option: SelectOption) => {
 		let updatedOptions = [...selectedOptions];
 		if (selectedOptions.includes(option.value)) {
 			updatedOptions = updatedOptions.filter(

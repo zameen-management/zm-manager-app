@@ -9,6 +9,7 @@ interface Route {
 const routes: Route[] = [
 	{ name: "General", to: "" },
 	{ name: "Applications", to: "applications" },
+	{ name: "Leases", to: "leases" },
 ];
 
 const PropertiesNav = () => {
