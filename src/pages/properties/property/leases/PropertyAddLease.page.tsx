@@ -3,7 +3,7 @@ import { getProperty } from "../../../../features/app/property.slice";
 import { useEffect, useState } from "react";
 import { EmptyLease, Lease } from "../../../../features/models/Lease.model";
 import Select, { SelectOption } from "../../../../features/ui/select/Select";
-import { Form, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import UsersApi from "../../../../features/api/Users.api";
 import { getFullName } from "../../../../features/utils/getFullName";
 import { Unit } from "../../../../features/models/Unit.model";
@@ -15,6 +15,7 @@ import Input from "../../../../features/ui/input/Input";
 import { Grid } from "../../../../features/styles/Grid.styled";
 import Dropdown from "../../../../features/ui/dropdown/Dropdown";
 import Button from "../../../../features/ui/button/Button";
+import Form from "../../../../features/ui/form/Form";
 
 const PropertyAddLeasePage = () => {
 	const property = useSelector(getProperty);
