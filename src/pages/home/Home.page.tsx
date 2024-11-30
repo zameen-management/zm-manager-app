@@ -1,5 +1,5 @@
 const HomeRoot = () => {
-	return <h5>Home Page</h5>;
+	return <h3>Site Coming Soon</h3>;
 };
 
 export default HomeRoot;
